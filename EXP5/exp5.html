@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 2</title>
+    
+    <style>
+        body{
+            margin: 2px;
+            size: 200%;
+            align-self: center;
+        }
+        .container{
+            background-color: azure;
+            text-align: center;
+            size: 200%;
+            border: 5px solid red;
+
+        }
+    </style>
+    
+</head>
+
+    <div class="container">
+
+        <hr>
+        <h2>To contact us, Please enter your details here!</h2>
+    <form action="">
+        <p>
+            Full Name: <input type="text" id="name" name="name"></p>
+        <p>
+            Password: <input type="password" id="password" name="password">
+        </p>
+            
+        <p>
+            E-Mail: <input type="email" id="email" name="email">
+        </p>
+        <p>
+
+            Phone: <input type="number" id="number" name="number">
+        </p>    
+        <input type="button"  value="Submit" onclick="validate()">
+        
+        
+    </form>
+    </div>
+</body>
+<script type="text/javascript">
+    function validate(){
+        var x = document.getElementById("name").value;
+        var psw = document.getElementById("password").value;
+        var phnum= document.getElementById("number").value
+        var mail = document.getElementById("email").value
+        // alert(x);
+
+        const isAlphaNumeric = str => /^[a-z]+$/gi.test(str);
+
+        if(!x)
+        {
+            alert("Name can not be empty");  
+        }
+
+        if(!psw)
+        {
+            alert("Password can not be empty");
+
+        }
+        if(!phnum)
+        {
+            alert("Phone No. can not be empty");
+        }
+
+        if(!mail)
+        {
+            alert("Email. can not be empty and must be of type abc@xyz.com");
+        }
+
+        if(x.length<6){
+            alert(" Name must be greter than 6 characters");
+        }
+        
+        if(!isAlphaNumeric(x)){
+            alert(" Name must be only alphabets");
+        }
+        
+        if(psw.length<6){
+            alert("Password length must be greter than 6 characters");
+        }
+        
+        if(phnum.length<10){
+            alert("Phone Number length must be greter than 10 digits");
+        }
+
+        if(!mail.includes("@") || !mail.includes(".com")){
+
+            alert("email must be of the form abc@xyz.com")
+        }
+
+        
+    }
+
+</script>
+
+</html>
