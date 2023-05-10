@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
+        integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div ng-app="calculatorApp" ng-controller="calculatorController">
+        <input type="text" ng-model="result" />
+        <br><br>
+        <button ng-click="add()">+</button>
+        <button ng-click="subtract()">-</button>
+        <button ng-click="multiply()">*</button>
+        <button ng-click="divide()">/</button>
+        <br><br>
+        <input type="number" ng-model="num1" />
+        <input type="number" ng-model="num2" />
+    </div>
+    <script>
+        var app = angular.module('calculatorApp', []);
+
+        app.controller('calculatorController', function ($scope) {
+            $scope.add = function () {
+                $scope.result = $scope.num1 + $scope.num2;
+            };
+
+            $scope.subtract = function () {
+                $scope.result = $scope.num1 - $scope.num2;
+            };
+
+            $scope.multiply = function () {
+                $scope.result = $scope.num1 * $scope.num2;
+            };
+
+            $scope.divide = function () {
+                $scope.result = $scope.num1 / $scope.num2;
+            };
+        });
+    </script>
+</body>
+
+</html>
