@@ -1,0 +1,80 @@
+package com.servlet;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+public class calculateServlet extends HttpServlet{
+
+	
+	protected void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		int sub1=Integer.parseInt(req.getParameter("m1"));
+		int sub2=Integer.parseInt(req.getParameter("e1"));
+		int sub3=Integer.parseInt(req.getParameter("p1"));
+		int sub4=Integer.parseInt(req.getParameter("c1"));
+		int sub5=Integer.parseInt(req.getParameter("b1"));
+		int average= (sub1+sub2+sub3+sub4+sub5)/5;
+		
+		
+//		if(Average>=90) {
+//
+//			pw.print("<p style=background-color=yellow> The Overall Grade is <em>A</em> </p>");
+//		}
+//		else if(Average>=80)
+//		{
+//			pw.print("<p style=background-color=yellow> The Overall Grade is <em>B</em> </p>");
+//		}
+//		else if(Average>=70)
+//		{
+//			pw.print("<p style=background-color=yellow> The Overall Grade is <em>C</em> </p>");
+//		}
+//		else if(Average>=60)
+//		{
+//			pw.print("<p style=background-color=yellow> The Overall Grade is <em>D</em> </p>");
+//		}
+//		else if(Average>=50)
+//		{
+//			pw.print("<p style=background-color=yellow> The Overall Grade is <em>E</em> </p>");
+//		}
+//		else if(Average>=40)
+//		{
+//			pw.print("<p style=background-color=yellow> The Overall Grade is <em>F</em> </p>");
+//		}
+//		else
+//		{
+//			pw.print("<p style=background-color=yellow><em>You are Fail!!</em> </p>");
+//		}
+
+		
+		String grade;
+	    if (average >= 90) {
+	      grade = "A+";
+	    } else if (average >= 80) {
+	      grade = "A";
+	    } else if (average >= 70) {
+	      grade = "B";
+	    } else if (average >= 60) {
+	      grade = "C";
+	    } else if (average >= 50) {
+	      grade = "D";
+	    } else {
+	      grade = "F";
+	    }
+	    
+	    pw.print("<p style=background-color=yellow><em>Your Grade is "+grade+"</em> </p>");
+		
+	}
+	
+	protected void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
+	{
+		doGet(req,res);
+	}
+	
+	
+	
+	
+}
